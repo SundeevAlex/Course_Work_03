@@ -11,5 +11,6 @@ def main():
 
 #  s = s[::-1]
 
-def main():
-    operations_data = load_operations('operations_lit.json')
+
+if __name__ == '__main__':
+    main()
