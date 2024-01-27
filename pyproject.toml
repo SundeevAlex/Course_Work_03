@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "course-work-03"
+version = "0.1.0"
+description = ""
+authors = ["Aleksandr Sundeev <navigator97@mail.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
