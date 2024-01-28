@@ -6,8 +6,8 @@ def load_operations(file_name):
     Загружает список банковских операций из файла
     """
     with open(file_name, encoding='utf-8') as file:
-        content = file.read()
-        operations = json.loads(content)
+        # content = file.read()
+        operations = json.loads(file.read())
     return operations
 
 
