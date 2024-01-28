@@ -27,12 +27,14 @@ def main():
 
         print(date_of_operation, operation["description"])
         from_operation = operation.get('from', '') + ' '
-        to_operation = operation["to"]
+        to_operation = operation["to"] + ' '
 
         from_operation_number = from_operation[-16:-1]
+        to_operation_number = to_operation
+        print('number-', to_operation)
         if from_operation != ' ':
             from_operation_number = from_operation_number[:4] + ' ' + from_operation_number[4:6] + '** **** ' + from_operation_number[11:16]
-            print(from_operation[0:-18], from_operation_number, '->', to_operation)
+            print(from_operation[0:-18], from_operation_number, '->', to_operation[0:-17], '**', to_operation[-5:-1])
 
         print('')
 
