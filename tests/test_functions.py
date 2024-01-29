@@ -15,15 +15,23 @@ def test_sorted_operations_data():
 
 
 def test_get_operation():
-    assert get_operation([
-        {"date": "2019-08-26T10:50:58.294041",
-         "from": "Maestro 1596837868705199",
-         "to": "Счет 64686473678894779589",
-         "description": "Перевод организации"}
-    ], 0) == {'date': '2019-08-26T10:50:58.294041',
-              'description': 'Перевод организации',
-              'from': 'Maestro 1596837868705199',
-              'to': 'Счет 64686473678894779589'}
+    assert (get_operation([
+        {'id': 863064926,
+         'state': 'EXECUTED',
+         'date': '2019-12-08T22:46:21.935582',
+         'operationAmount':
+             {'amount': '41096.24', 'currency': {'name': 'USD', 'code': 'USD'}},
+         'description': 'Открытие вклада',
+         'from': "Maestro 1596837868705199",
+         'to': 'Счет 90424923579946435907'}
+    ], 0) == {
+                'date': '2019-12-08T22:46:21.935582',
+                'description': 'Открытие вклада',
+                'from': 'Maestro 1596837868705199',
+                'to': 'Счет 90424923579946435907',
+                'amount': '41096.24',
+                'name': 'USD'
+            })
 
 
 def test_get_operation__error():
