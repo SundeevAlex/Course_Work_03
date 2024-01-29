@@ -51,7 +51,7 @@ def split_string(data):
                 from_name += el + ' '
             else:
                 from_number = el
-        return from_name, from_number
+        return [from_name, from_number]
 
 
 def get_operation(data, i):
