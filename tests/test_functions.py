@@ -1,7 +1,7 @@
 import pytest
 from src.functions import operations_check, sorted_operations_data, get_operation
 from src.functions import load_operations, split_string, print_date_and_description
-from src.functions import print_from_or_to_operation
+from src.functions import print_from_or_to_operation, print_operation_amount
 
 
 def test_operations_check():
@@ -63,3 +63,16 @@ def test_print_from_or_to_operation():
         {'from': 'Visa Classic 2842878893689012'}, 'from', '->') == '2842 87** **** 9012'
     assert print_from_or_to_operation(
         {'to': 'Master 2842878893689015'}, 'to', '') == '**9015'
+
+
+def test_print_operation_amount():
+    assert print_operation_amount(
+        {
+            'amount': '17628.50',
+            'name': 'USD'
+        }) == '17628.50 USD'
+    assert print_operation_amount(
+        {
+            'amount': '17000.50',
+            'name': 'руб.'
+        }) == '17000.50 руб.'
