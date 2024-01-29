@@ -82,12 +82,18 @@ def print_date_and_description(data):
     return date_of_operation, data["description"]
 
 
-def print_from_operation(data):
-    from_operation = data.get("from", '')
+def print_from_or_to_operation(data, direction, sign):
+    from_or_to_operation = data.get(direction, '')
+    # to_operation = operation["to"] + ' '
     # print(from_operation)
-    from_operation = split_string(from_operation)
+    from_or_to_operation = split_string(from_or_to_operation)
 
-    if from_operation is not None:
-        from_number = from_operation[1][:4] + ' ' + from_operation[1][4:6] + '** **** ' + from_operation[1][-5:-1]
-        print(from_operation[0][:-1], from_number, '->')
-        return from_number
+    if from_or_to_operation is not None:
+        if direction == 'from':
+            from_or_to_number = from_or_to_operation[1][:4] + ' ' + from_or_to_operation[1][4:6] + '** **** ' + from_or_to_operation[1][-5:-1]
+            # print(from_operation[0][:-1], from_number, '->')
+            print(from_or_to_operation[0][:-1], from_or_to_number, sign, end='')
+        else:
+            from_or_to_number = '**' + from_or_to_operation[1][-5:-1]
+            print(from_or_to_operation[0][:-1], from_or_to_number, sign, end='')
+        return from_or_to_number
