@@ -1,6 +1,7 @@
 import pytest
 from src.functions import operations_check, sorted_operations_data, get_operation
 from src.functions import load_operations, split_string, print_date_and_description
+from src.functions import print_from_operation
 
 
 def test_operations_check():
@@ -47,3 +48,11 @@ def test_print_date_and_description():
          'description': 'Перевод организации',
          'from': 'Visa Classic 2842878893689012',
          'to': 'Счет 35158586384610753655'}) == ('07.12.2019', 'Перевод организации')
+
+
+def test_print_from_operation():
+    assert print_from_operation(
+        {'date': '2019-12-07T06:17:14.634890',
+         'description': 'Перевод организации',
+         'from': 'Visa Classic 2842878893689012',
+         'to': 'Счет 35158586384610753655'}) == '2842 87** **** 9012'
