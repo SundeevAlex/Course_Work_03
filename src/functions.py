@@ -75,6 +75,7 @@ def get_operation(data, i):
 
 
 def print_date_and_description(data):
+
     date_of_operation = data["date"][:-16]
     date_of_operation = date_of_operation.split('-')
     date_of_operation = date_of_operation[2] + '.' + date_of_operation[1] + '.' + date_of_operation[0]
