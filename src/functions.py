@@ -35,3 +35,31 @@ def sorted_operations_data(data):
     """
     # operations_data_sorted = sorted(operations_data, key=lambda item: item["date"])
     return sorted(data, key=key_sort, reverse=True)
+
+
+def split_string(data):
+    """
+    Разбивка строки на текстовую часть и цифровую
+    """
+    ...
+
+
+def get_operation(data, i):
+    """
+    Получение необходимых полей для вывода
+    """
+    if "from" in data[i]:
+        operation = {
+            "date": data[i]["date"],
+            "description": data[i]["description"],
+            "from": data[i]["from"],
+            "to": data[i]["to"],
+        }
+    else:
+        operation = {
+            "date": data[i]["date"],
+            "description": data[i]["description"],
+            "to": data[i]["to"],
+        }
+    return operation
+
