@@ -45,7 +45,6 @@ def split_string(data):
         from_name = ''
         from_number = ''
         split_data = data.split(' ')
-        # print(split_data)
         for el in split_data:
             if el.isalpha():
                 from_name += el + ' '
@@ -58,19 +57,27 @@ def get_operation(data, i):
     """
     Получение необходимых полей для вывода
     """
+    oper_amount = {"operationAmount": data[i]["operationAmount"]}
+    amount = oper_amount["operationAmount"]["amount"]
+    name = oper_amount["operationAmount"]["currency"]["name"]
     if "from" in data[i]:
         operation = {
             "date": data[i]["date"],
             "description": data[i]["description"],
             "from": data[i]["from"],
             "to": data[i]["to"],
+            "amount": amount,
+            "name": name
         }
     else:
         operation = {
             "date": data[i]["date"],
             "description": data[i]["description"],
             "to": data[i]["to"],
+            "amount": amount,
+            "name": name
         }
+    print(operation)
     return operation
 
 
@@ -84,8 +91,6 @@ def print_date_and_description(data):
 
 def print_from_or_to_operation(data, direction, sign):
     from_or_to_operation = data.get(direction, '')
-    # to_operation = operation["to"] + ' '
-    # print(from_operation)
     from_or_to_operation = split_string(from_or_to_operation)
 
     if from_or_to_operation is not None:
