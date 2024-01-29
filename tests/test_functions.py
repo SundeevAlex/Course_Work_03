@@ -1,6 +1,6 @@
 import pytest
 from src.functions import operations_check, sorted_operations_data, get_operation
-from src.functions import load_operations, split_string
+from src.functions import load_operations, split_string, print_date_and_description
 
 
 def test_operations_check():
@@ -39,3 +39,11 @@ def test_split_string():
     assert split_string('Visa Classic 345345') == ['Visa Classic ', '345345']
     assert split_string('MasterCard 1796816785869527') == ['MasterCard ', '1796816785869527']
     assert split_string('Visa Classic card 555') == ['Visa Classic card ', '555']
+
+
+def test_print_date_and_description():
+    assert print_date_and_description(
+        {'date': '2019-12-07T06:17:14.634890',
+         'description': 'Перевод организации',
+         'from': 'Visa Classic 2842878893689012',
+         'to': 'Счет 35158586384610753655'}) == ('07.12.2019', 'Перевод организации')
