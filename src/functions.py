@@ -57,9 +57,9 @@ def get_operation(data, i):
     """
     Получение необходимых полей для вывода
     """
-    oper_amount = {"operationAmount": data[i]["operationAmount"]}
-    amount = oper_amount["operationAmount"]["amount"]
-    name = oper_amount["operationAmount"]["currency"]["name"]
+    operation_amount = {"operationAmount": data[i]["operationAmount"]}
+    amount = operation_amount["operationAmount"]["amount"]
+    name = operation_amount["operationAmount"]["currency"]["name"]
     if "from" in data[i]:
         operation = {
             "date": data[i]["date"],
@@ -96,7 +96,6 @@ def print_from_or_to_operation(data, direction, sign):
     if from_or_to_operation is not None:
         if direction == 'from':
             from_or_to_number = from_or_to_operation[1][:4] + ' ' + from_or_to_operation[1][4:6] + '** **** ' + from_or_to_operation[1][-5:-1]
-            # print(from_operation[0][:-1], from_number, '->')
             print(from_or_to_operation[0][:-1], from_or_to_number, sign, end='')
         else:
             from_or_to_number = '**' + from_or_to_operation[1][-5:-1]
