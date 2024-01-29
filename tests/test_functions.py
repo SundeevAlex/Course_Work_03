@@ -1,5 +1,6 @@
 import pytest
-from src.functions import operations_check, sorted_operations_data, get_operation, load_operations
+from src.functions import operations_check, sorted_operations_data, get_operation
+from src.functions import load_operations, split_string
 
 
 def test_operations_check():
@@ -32,3 +33,9 @@ def test_get_operation__error():
 def test_load_operations():
     with pytest.raises(Exception):
         load_operations('')
+
+
+def test_split_string():
+    assert split_string('Visa Classic 345345') == ('Visa Classic ', '345345')
+    assert split_string('MasterCard 1796816785869527') == ('MasterCard ', '1796816785869527')
+    assert split_string('Visa Classic card 555') == ('Visa Classic card ', '555')
