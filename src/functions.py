@@ -77,7 +77,6 @@ def get_operation(data, i):
             "amount": amount,
             "name": name
         }
-    print(operation)
     return operation
 
 
@@ -101,3 +100,9 @@ def print_from_or_to_operation(data, direction, sign):
             from_or_to_number = '**' + from_or_to_operation[1][-5:-1]
             print(from_or_to_operation[0][:-1], from_or_to_number, sign, end='')
         return from_or_to_number
+
+
+def print_operation_amount(data):
+    print(data)
+    print('\n' + data["amount"] + ' ' + data["name"])
+    return data["amount"] + ' ' + data["name"]
