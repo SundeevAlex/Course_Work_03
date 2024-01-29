@@ -45,12 +45,12 @@ def split_string(data):
         from_name = ''
         from_number = ''
         split_data = data.split(' ')
-        print(split_data)
+        # print(split_data)
         for el in split_data:
             if el.isalpha():
                 from_name += el + ' '
             else:
-                from_number = el
+                from_number = el + ' '
         return [from_name, from_number]
 
 
@@ -75,9 +75,19 @@ def get_operation(data, i):
 
 
 def print_date_and_description(data):
-
     date_of_operation = data["date"][:-16]
     date_of_operation = date_of_operation.split('-')
     date_of_operation = date_of_operation[2] + '.' + date_of_operation[1] + '.' + date_of_operation[0]
-    # print(date_of_operation, data["description"])
+    print(date_of_operation, data["description"])
     return date_of_operation, data["description"]
+
+
+def print_from_operation(data):
+    from_operation = data.get("from", '')
+    # print(from_operation)
+    from_operation = split_string(from_operation)
+
+    if from_operation is not None:
+        from_number = from_operation[1][:4] + ' ' + from_operation[1][4:6] + '** **** ' + from_operation[1][-5:-1]
+        print(from_operation[0][:-1], from_number, '->')
+        return from_number
