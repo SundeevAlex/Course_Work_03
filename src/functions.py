@@ -41,7 +41,17 @@ def split_string(data):
     """
     Разбивка строки на текстовую часть и цифровую
     """
-    ...
+    if data != '':
+        from_name = ''
+        from_number = ''
+        split_data = data.split(' ')
+        print(split_data)
+        for el in split_data:
+            if el.isalpha():
+                from_name += el + ' '
+            else:
+                from_number = el
+        return from_name, from_number
 
 
 def get_operation(data, i):
@@ -62,4 +72,3 @@ def get_operation(data, i):
             "to": data[i]["to"],
         }
     return operation
-
