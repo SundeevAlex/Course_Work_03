@@ -35,6 +35,12 @@ def sorted_operations_data(data):
     return sorted(data, key=key_sort, reverse=True)
 
 
+def getting_operations_data(data):
+    operations_data = operations_check(data)
+    operations_data = sorted_operations_data(operations_data)
+    return operations_data
+
+
 def split_string(data):
     """
     Разбивка строки на текстовую часть и цифровую
@@ -103,3 +109,10 @@ def print_from_or_to_operation(data, direction, sign):
 def print_operation_amount(data):
     print('\n' + data["amount"] + ' ' + data["name"] + '\n')
     return data["amount"] + ' ' + data["name"]
+
+
+def print_all(data):
+    print_date_and_description(data)
+    print_from_or_to_operation(data, "from", '-> ')
+    print_from_or_to_operation(data, "to", '')
+    return print_operation_amount(data)
