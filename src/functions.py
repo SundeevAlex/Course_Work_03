@@ -36,6 +36,10 @@ def sorted_operations_data(data):
 
 
 def getting_operations_data(data):
+    """
+    Преобразовывает считанные из файла данные
+    к отсортированному виду (по дате)
+    """
     operations_data = operations_check(data)
     operations_data = sorted_operations_data(operations_data)
     return operations_data
@@ -43,7 +47,7 @@ def getting_operations_data(data):
 
 def split_string(data):
     """
-    Разбивка строки на текстовую часть и цифровую
+    Разбивка строки(информации об операции) на текстовую часть и цифровую
     """
     if data != '':
         from_name = ''
@@ -85,6 +89,9 @@ def get_operation(data, i):
 
 
 def print_date_and_description(data):
+    """
+    Вывод на экран информации о дате и виде операции
+    """
     date_of_operation = data["date"][:-16]
     date_of_operation = date_of_operation.split('-')
     date_of_operation = date_of_operation[2] + '.' + date_of_operation[1] + '.' + date_of_operation[0]
@@ -93,6 +100,9 @@ def print_date_and_description(data):
 
 
 def print_from_or_to_operation(data, direction, sign):
+    """
+    Вывод на экран информации откуда и куда была произведена операция
+    """
     from_or_to_operation = data.get(direction, '')
     from_or_to_operation = split_string(from_or_to_operation)
 
@@ -107,11 +117,18 @@ def print_from_or_to_operation(data, direction, sign):
 
 
 def print_operation_amount(data):
+    """
+    Вывод на экран информации о сумме операции и в какой валюте это было произведено
+    """
     print('\n' + data["amount"] + ' ' + data["name"] + '\n')
     return data["amount"] + ' ' + data["name"]
 
 
 def print_all(data):
+    """
+    Вывод на экран всей информации об операциях совершенных клиентом банка
+    (print_date_and_description, print_from_or_to_operation, print_operation_amount)
+    """
     print_date_and_description(data)
     print_from_or_to_operation(data, "from", '-> ')
     print_from_or_to_operation(data, "to", '')
