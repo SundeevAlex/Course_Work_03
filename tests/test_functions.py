@@ -11,7 +11,6 @@ def test_operations_check():
 
 def test_sorted_operations_data():
     assert sorted_operations_data([]) == []
-    # assert sorted_operations_data(['id']) != []
 
 
 def test_get_operation():

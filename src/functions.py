@@ -6,7 +6,6 @@ def load_operations(file_name):
     Загружает список банковских операций из файла
     """
     with open(file_name, encoding='utf-8') as file:
-        # content = file.read()
         operations = json.loads(file.read())
     return operations
 
@@ -33,7 +32,6 @@ def sorted_operations_data(data):
     """
     Сортировка банковский операций по дате убывания
     """
-    # operations_data_sorted = sorted(operations_data, key=lambda item: item["date"])
     return sorted(data, key=key_sort, reverse=True)
 
 
@@ -103,6 +101,5 @@ def print_from_or_to_operation(data, direction, sign):
 
 
 def print_operation_amount(data):
-    print(data)
-    print('\n' + data["amount"] + ' ' + data["name"])
+    print('\n' + data["amount"] + ' ' + data["name"] + '\n')
     return data["amount"] + ' ' + data["name"]
