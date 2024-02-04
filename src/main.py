@@ -1,4 +1,4 @@
-from functions import load_operations, get_operation, getting_operations_data,print_all
+from functions import load_operations, get_operation, getting_operations_data, print_all
 
 
 def main():
